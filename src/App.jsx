@@ -9,6 +9,7 @@ import NotFound from './Pages/NotFound';
 import { ToastContainer } from 'react-toastify';
 import Header from './Components/Header';
 import Footer from './Components/Footer';
+import NotificationPush from './Components/notificationPush';
 
 const App = () => {
   const [token ,setToken] = useState('');
@@ -29,6 +30,7 @@ const App = () => {
         <Route path='/reset-password' element={<ResetPassword/>} />
         <Route path='/forgot-password' element={<ForgotPassword/>} />
         <Route path='/notfound' element={<NotFound/>} />
+        <Route path='/notificationpush' element={<NotificationPush/>} />
       </Routes>
       <div>
         <Footer />

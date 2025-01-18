@@ -12,8 +12,9 @@ const Register = () => {
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
   const [showPass, setShowPass] = useState(false);
-  const [category, setCategory] = useState(["all"]);
-  const [notication, setNotication] = useState("");
+  const [categories, setCategory] = useState([]);
+  const [frequency, setFrequency] = useState("");
+  const [notificationchannels, setNotication] = useState("");
 
   const navigate = useNavigate();
 
@@ -40,7 +41,7 @@ const noticationOptions = [
   { opt: "Push Notification"}
 ]
 
-console.log(category)
+console.log(categories)
 // const handleChange = value => {
 //   console.log("value:", value);
 //   setAnimal(value);
@@ -48,9 +49,9 @@ console.log(category)
 // };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const payload = { name, email, password };
+    const payload = { name, email, phone, categories, frequency, notificationchannels, password };
     await axios
-      .post("https://password-rest-h7d5.onrender.com/api/auth/register", payload)
+      .post("https://news-app-back.onrender.com/api/auth/register", payload)
       .then((res) => {
         toast.success(res.data.message);
         navigate("/login");
@@ -95,7 +96,8 @@ console.log(category)
             <div>
               <label htmlFor="categories" className="block text-sm/6 font-medium text-gray-900">Select Categories</label>
               <div className="mt-2">
-        <select onChange={(e) => setCategory(e.target.value)} className='block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-teal-500 sm:text-sm/6'>
+        <select onChange={(e) => setCategory([...categories,e.target.value])} className='block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-teal-500 sm:text-sm/6'>
+        <option>Select</option>
        {options.map((opn,index)=>{
         return(
           <option key={index} value={opn.opt}>{opn.opt}</option>

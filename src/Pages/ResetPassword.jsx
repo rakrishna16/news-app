@@ -14,7 +14,7 @@ const ResetPassword = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         await axios
-            .post(`https://password-rest-h7d5.onrender.com/api/auth/reset-password/${id}/${token}/${passkey}`, {
+            .post(`https://news-app-back.onrender.com/api/auth/reset-password/${id}/${token}/${passkey}`, {
                 password,
             })
             .then((res) => {

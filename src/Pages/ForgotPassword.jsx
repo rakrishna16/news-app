@@ -14,7 +14,7 @@ const ForgotPassword = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         await axios
-            .post("https://password-rest-h7d5.onrender.com/api/auth/forgot-password", { email })
+            .post("https://news-app-back.onrender.com/api/auth/forgot-password", { email })
             .then((res) => {
                 toast.success(res.data.message);
                 navigate("/login")

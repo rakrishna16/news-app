@@ -16,7 +16,7 @@ const Login = ({ setToken, setPasskey }) => {
         e.preventDefault();
         const payload = { email, password };
         await axios
-            .post("https://password-rest-h7d5.onrender.com/api/auth/login", payload)
+            .post("https://news-app-back.onrender.com/api/auth/login", payload)
             .then((res) => {
                 toast.success(res.data.message);
                 setToken(res.data.token)
