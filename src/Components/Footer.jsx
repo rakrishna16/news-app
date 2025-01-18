@@ -12,7 +12,7 @@ const Footer = () => {
                     <Link to={"/"}><span className="font-semibold text-xl tracking-tight">HKX News</span></Link>
                 </div>
                 <div className='mx-auto my-5 sm:mx-0 sm:my-0'>
-                    <p className='text-white'><Link to={"/"}>© HKX Pass APP</Link>. All rights reserved.</p>
+                    <p className='text-white'><Link to={"/"}>© HKX News App</Link>. All rights reserved.</p>
                 </div>
             </nav>
         </div>
