@@ -20,33 +20,33 @@ const Register = () => {
 
   //setIsMultiple(animal)
   const options = [
-    { opt: "All"},
-    { opt: "politics"},
-    { opt: "education"},
-    { opt: "sports"},
-    { opt: "entertainment"},
-    { opt: "top"},
-    { opt: "science"},
-    { opt: "technology"},
-    { opt: "others"}
-];
-const frequencyOptions = [
-  { opt: "5mins"},
-  { opt: "1hr"},
-  { opt: "24hr"}
-];
+    { opt: "All" },
+    { opt: "politics" },
+    { opt: "education" },
+    { opt: "sports" },
+    { opt: "entertainment" },
+    { opt: "top" },
+    { opt: "science" },
+    { opt: "technology" },
+    { opt: "others" }
+  ];
+  const frequencyOptions = [
+    { opt: "5mins" },
+    { opt: "1hr" },
+    { opt: "24hr" }
+  ];
 
-const noticationOptions = [
-  { opt: "email"},
-  { opt: "Push Notification"}
-]
+  const noticationOptions = [
+    { opt: "email" },
+    { opt: "Push Notification" }
+  ]
 
-console.log(categories)
-// const handleChange = value => {
-//   console.log("value:", value);
-//   setAnimal(value);
-//   console.log(animal)
-// };
+  console.log(categories)
+  // const handleChange = value => {
+  //   console.log("value:", value);
+  //   setAnimal(value);
+  //   console.log(animal)
+  // };
   const handleSubmit = async (e) => {
     e.preventDefault();
     const payload = { name, email, phone, categories, frequency, notificationchannels, password };
@@ -69,7 +69,7 @@ console.log(categories)
     <div className="h-full bg-white">
       <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-        <img className="mx-auto h-20 w-auto" src="https://tse4.mm.bing.net/th?id=OIG4.j7jaTCwHOxkxCC4uAxCm&pid=ImgGn" alt="Your Company" />
+          <img className="mx-auto h-20 w-auto" src="https://tse4.mm.bing.net/th?id=OIG4.j7jaTCwHOxkxCC4uAxCm&pid=ImgGn" alt="Your Company" />
           {/* <SiVorondesign className="mx-auto h-10 w-auto" /> */}
           <h2 className="mt-5 text-center text-lg sm:text-2xl/9 font-bold tracking-tight text-gray-900">Register for a new account</h2>
         </div>
@@ -96,40 +96,40 @@ console.log(categories)
             <div>
               <label htmlFor="categories" className="block text-sm/6 font-medium text-gray-900">Select Categories</label>
               <div className="mt-2">
-        <select onChange={(e) => setCategory([...categories,e.target.value])} className='block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-teal-500 sm:text-sm/6'>
-        <option>Select</option>
-       {options.map((opn,index)=>{
-        return(
-          <option key={index} value={opn.opt}>{opn.opt}</option>
-        )
-        })}
-        </select>
-        </div>
-        </div>
-        <div>
+                <select onChange={(e) => setCategory([...categories, e.target.value])} className='block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-teal-500 sm:text-sm/6'>
+                  <option>Select</option>
+                  {options.map((opn, index) => {
+                    return (
+                      <option key={index} value={opn.opt}>{opn.opt}</option>
+                    )
+                  })}
+                </select>
+              </div>
+            </div>
+            <div>
               <label htmlFor="Frequency" className="block text-sm/6 font-medium text-gray-900">Select Notification Timing</label>
               <div className="mt-2">
-        <select onChange={(e) => setFrequency(e.target.value)} className='block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-teal-500 sm:text-sm/6'>
-       {frequencyOptions.map((opn,index)=>{
-        return(
-        <option key={index} value={opn.opt}>Every {opn.opt}</option>
-        )
-        })}
-        </select>
-        </div>
-        </div>
-        <div>
+                <select onChange={(e) => setFrequency(e.target.value)} className='block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-teal-500 sm:text-sm/6'>
+                  {frequencyOptions.map((opn, index) => {
+                    return (
+                      <option key={index} value={opn.opt}>Every {opn.opt}</option>
+                    )
+                  })}
+                </select>
+              </div>
+            </div>
+            <div>
               <label htmlFor="Notifications" className="block text-sm/6 font-medium text-gray-900">Select Notification Module</label>
               <div className="mt-2">
-        <select onChange={(e) => setNotication(e.target.value)} className='block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-teal-500 sm:text-sm/6'>
-       {noticationOptions.map((opn,index)=>{
-        return(
-          <option key={index} value={opn.opt}>{opn.opt}</option>
-        )
-        })}
-        </select>
-        </div>
-        </div>
+                <select onChange={(e) => setNotication(e.target.value)} className='block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-teal-500 sm:text-sm/6'>
+                  {noticationOptions.map((opn, index) => {
+                    return (
+                      <option key={index} value={opn.opt}>{opn.opt}</option>
+                    )
+                  })}
+                </select>
+              </div>
+            </div>
             <div>
               <div className="flex items-center justify-between">
                 <label htmlFor="password" className="block text-sm/6 font-medium text-gray-900">Password</label>

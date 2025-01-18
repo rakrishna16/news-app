@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import {requestNotificationPermission} from '../firebase';
+import { requestNotificationPermission } from '../firebase';
 import { onMessage } from 'firebase/messaging';
 
 const NotificationPush = () => {
@@ -12,18 +12,18 @@ const NotificationPush = () => {
         getTokenAsync();
     }, []);
 
-    const getTokenAsync = async () => { 
-        try { 
-            const token = await requestNotificationPermission(); 
+    const getTokenAsync = async () => {
+        try {
+            const token = await requestNotificationPermission();
             setToken(token);
             console.log(token)
-        } 
-    catch (error) { 
-        console.error('Error getting token:', error);
-     } 
-    }; 
+        }
+        catch (error) {
+            console.error('Error getting token:', error);
+        }
+    };
 
-console.log(token)
+    console.log(token)
     const sendNotification = async () => {
         if (token) {
             await axios.post('http://localhost:4000/api/auth/send-notification',
@@ -34,20 +34,20 @@ console.log(token)
             console.log('No token available');
         }
     };
-        useEffect(() => { 
-            onMessage((payload) => { 
-                console.log('Message received:', payload); 
-            }); 
-        }, []);
+    useEffect(() => {
+        onMessage((payload) => {
+            console.log('Message received:', payload);
+        });
+    }, []);
 
-        return (
-            <div>
-                <h1>Firebase Push Notification</h1> 
-                <input type="text" placeholder="Title" value={title} onChange={(e) => setTitle(e.target.value)} /> 
-                <input type="text" placeholder="Body" value={body} onChange={(e) => setBody(e.target.value)} /> 
-                <button onClick={sendNotification}>Send Notification</button>
-            </div>
-        );
-    };
+    return (
+        <div>
+            <h1>Firebase Push Notification</h1>
+            <input type="text" placeholder="Title" value={title} onChange={(e) => setTitle(e.target.value)} />
+            <input type="text" placeholder="Body" value={body} onChange={(e) => setBody(e.target.value)} />
+            <button onClick={sendNotification}>Send Notification</button>
+        </div>
+    );
+};
 
-    export default NotificationPush;
+export default NotificationPush;

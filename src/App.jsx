@@ -12,29 +12,29 @@ import Footer from './Components/Footer';
 import NotificationPush from './Components/notificationPush';
 
 const App = () => {
-  const [token ,setToken] = useState('');
+  const [token, setToken] = useState('');
 
   return (
     <div>
       <div>
-        <ToastContainer/>
+        <ToastContainer />
       </div>
       <BrowserRouter>
-      <div>
-        <Header />
-      </div>
-      <Routes>
-        <Route path='/' element={<Home/>} />
-        <Route path='/login' element={<Login setToken={setToken}/>} />
-        <Route path='/register' element={<Register/>} />
-        <Route path='/reset-password' element={<ResetPassword/>} />
-        <Route path='/forgot-password' element={<ForgotPassword/>} />
-        <Route path='/notfound' element={<NotFound/>} />
-        <Route path='/notificationpush' element={<NotificationPush/>} />
-      </Routes>
-      <div>
-        <Footer />
-      </div>
+        <div>
+          <Header />
+        </div>
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/login' element={<Login setToken={setToken} />} />
+          <Route path='/register' element={<Register />} />
+          <Route path='/reset-password' element={<ResetPassword />} />
+          <Route path='/forgot-password' element={<ForgotPassword />} />
+          <Route path='/notfound' element={<NotFound />} />
+          <Route path='/notificationpush' element={<NotificationPush />} />
+        </Routes>
+        <div>
+          <Footer />
+        </div>
       </BrowserRouter>
     </div>
   );

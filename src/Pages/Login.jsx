@@ -35,7 +35,7 @@ const Login = ({ setToken, setPasskey }) => {
             <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
                 <div className="sm:mx-auto sm:w-full sm:max-w-sm">
                     <Link to={"/"}>
-                    <img className="mx-auto h-20 w-auto" src="https://tse4.mm.bing.net/th?id=OIG4.j7jaTCwHOxkxCC4uAxCm&pid=ImgGn" alt="Your Company" />
+                        <img className="mx-auto h-20 w-auto" src="https://tse4.mm.bing.net/th?id=OIG4.j7jaTCwHOxkxCC4uAxCm&pid=ImgGn" alt="Your Company" />
                         {/* <SiVorondesign className="mx-auto h-10 w-auto" /> */}
                         <h2 className="mt-5 text-center text-lg sm:text-2xl/9 font-bold tracking-tight text-gray-900">Login To Your Account</h2></Link>
                 </div>
