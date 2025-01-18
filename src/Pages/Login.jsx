@@ -35,8 +35,9 @@ const Login = ({ setToken, setPasskey }) => {
             <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
                 <div className="sm:mx-auto sm:w-full sm:max-w-sm">
                     <Link to={"/"}>
-                        <SiVorondesign className="mx-auto h-10 w-auto" />
-                        <h2 className="mt-10 text-center text-lg sm:text-2xl/9 font-bold tracking-tight text-gray-900">Login To Your Account</h2></Link>
+                    <img className="mx-auto h-20 w-auto" src="https://tse4.mm.bing.net/th?id=OIG4.j7jaTCwHOxkxCC4uAxCm&pid=ImgGn" alt="Your Company" />
+                        {/* <SiVorondesign className="mx-auto h-10 w-auto" /> */}
+                        <h2 className="mt-5 text-center text-lg sm:text-2xl/9 font-bold tracking-tight text-gray-900">Login To Your Account</h2></Link>
                 </div>
                 <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
                     <form className="space-y-6" action="#" method="POST" onSubmit={handleSubmit}>
@@ -50,7 +51,7 @@ const Login = ({ setToken, setPasskey }) => {
                             <div className="flex items-center justify-between">
                                 <label htmlFor="password" className="block text-sm/6 font-medium text-gray-900">Password</label>
                                 <div className="text-sm">
-                                    <Link to="/forgot-password" className="font-semibold text-teal-500 hover:text-gray-900">Forgot password?</Link>
+                                    <Link to="/forgot-password" className="font-semibold text-gray-900 hover:text-slate-700">Forgot password?</Link>
                                 </div>
                             </div>
                             <div className="mt-2">
@@ -61,13 +62,13 @@ const Login = ({ setToken, setPasskey }) => {
                             </div>
                         </div>
                         <div>
-                            <button type="submit" className="flex w-full justify-center rounded-md bg-teal-500 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-sm hover:bg-gray-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-500">Submit</button>
+                            <button type="submit" className="flex w-full justify-center rounded-md bg-gray-900 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-sm hover:bg-slate-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-500">Submit</button>
                         </div>
 
                     </form>
                     <p className="mt-10 text-center text-sm/6 text-gray-500">
                         Not have an account please continue to?
-                        <Link to="/" className="font-semibold text-teal-500 hover:text-gray-900"> Register Page</Link>
+                        <Link to="/" className="font-semibold text-gray-900 hover:text-slate-700"> Register Page</Link>
                     </p>
                 </div>
             </div>
