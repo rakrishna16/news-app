@@ -3,11 +3,23 @@ import { SiVorondesign } from "react-icons/si";
 import { Link } from 'react-router-dom';
 
 const Header = () => {
-const[searchTerm,setSearchTerm]=useState("")
+const [searchTerm,setSearchTerm]=useState("")
+const [hide,setHide]= useState("true");
+ const [show,setShow]=useState('hidden');
 
 const handleSubmit = ()=>{
 
 }
+const handleMenu = ()=> {
+  setHide("false")
+  setShow("block")
+}
+const closeMenu = ()=> {
+  setHide("true")
+  setShow("hidden")
+}
+ 
+ 
 
     return (
         <div>
@@ -15,8 +27,8 @@ const handleSubmit = ()=>{
   <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
     <div className="relative flex h-16 items-center justify-between">
       <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
-       
-        <button type="button" className="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
+      {hide=="true"?
+        <button type="button" onClick={handleMenu} className="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
           <span className="absolute -inset-0.5" />
           <span className="sr-only">Open main menu</span>
          
@@ -32,6 +44,25 @@ const handleSubmit = ()=>{
             <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
           </svg>
         </button>
+:
+<button type="button" onClick={closeMenu} className="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
+          <span className="absolute -inset-0.5" />
+          <span className="sr-only">Open main menu</span>
+         
+          <svg className="block size-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>
+          {/*
+            Icon when menu is open.
+
+            Menu open: "block", Menu closed: "hidden"
+          */}
+          <svg className="hidden size-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
+          </svg>
+        </button>
+}
+
       </div>
       <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
         <div className="flex shrink-0 items-center">
@@ -41,11 +72,6 @@ const handleSubmit = ()=>{
         </div>
         <div className="hidden m-auto w-1/2 sm:block">
           <div className="flex space-x-4">
-            {/* Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" */}
-            {/* <a href="#" className="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white" aria-current="page">Dashboard</a>
-            <a href="#" className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Team</a>
-            <a href="#" className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Projects</a>
-            <a href="#" className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Calendar</a> */}
             <form className="max-w-md mx-auto my-5 sm:my-0 w-full">
             <label htmlFor="default-search" className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
             <div className="relative">
@@ -67,7 +93,7 @@ const handleSubmit = ()=>{
         </div>
       </div>
       <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-        <button type="button" className="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+        <button type="button" className="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" >
           <span className="absolute -inset-1.5" />
           <span className="sr-only">View notifications</span>
           <svg className="size-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
@@ -76,24 +102,19 @@ const handleSubmit = ()=>{
         </button>
         {/* Profile dropdown */}
         <div className="relative ml-3">
-          <div>
-            {/* <button type="button" className="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
+          <div className='hidden sm:block'>
+          <Link to={"/profile"}>
+            <button type="button" className="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
               <span className="absolute -inset-1.5" />
               <span className="sr-only">Open user menu</span>
-              <img className="size-8 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt />
-            </button> */}
+              <img className="size-8 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="user img" />
+            </button>
+            </Link>
             <Link to={"/register"}  className="rounded-md bg-gray-900 mx-2 px-3 py-2 text-sm font-medium text-white" aria-current="page">Register</Link>
             <Link to={"/login"}  className="rounded-md bg-blue-500 mx-3 px-3 py-2 text-sm font-medium text-white" aria-current="page">Login</Link>
           </div>
           {/*
             Dropdown menu, show/hide based on menu state.
-
-            Entering: "transition ease-out duration-100"
-              From: "transform opacity-0 scale-95"
-              To: "transform opacity-100 scale-100"
-            Leaving: "transition ease-in duration-75"
-              From: "transform opacity-100 scale-100"
-              To: "transform opacity-0 scale-95"
           */}
           <div className="hidden absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black/5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabIndex={-1}>
             {/* Active: "bg-gray-100 outline-none", Not Active: "" */}
@@ -106,13 +127,19 @@ const handleSubmit = ()=>{
     </div>
   </div>
   {/* Mobile menu, show/hide based on menu state. */}
-  <div className="sm:hidden" id="mobile-menu">
+  <div className={`${show} sm:hidden`} id="mobile-menu">
     <div className="space-y-1 px-2 pb-3 pt-2">
       {/* Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" */}
       <a href="#" className="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white" aria-current="page">Dashboard</a>
       <a href="#" className="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Team</a>
       <a href="#" className="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Projects</a>
       <a href="#" className="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Calendar</a>
+      <div className="relative ml-1">
+          <div>
+            <Link to={"/register"}  className="rounded-md bg-gray-900 mx-2 px-3 py-2 text-sm font-medium text-white" aria-current="page">Register</Link>
+            <Link to={"/login"}  className="rounded-md bg-blue-500 mx-3 px-3 py-2 text-sm font-medium text-white" aria-current="page">Login</Link>
+          </div>
+        </div>
     </div>
   </div>
 </nav>
